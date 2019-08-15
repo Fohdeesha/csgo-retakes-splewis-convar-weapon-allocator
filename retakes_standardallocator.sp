@@ -16,11 +16,13 @@ const int rifle_choice_ct_m4a4 = 2;
 const int rifle_choice_ct_m4a1_s = 3;
 const int rifle_choice_ct_aug = 4;
 const int rifle_choice_ct_p90 = 5;
+const int rifle_choice_ct_ssg08 = 6;
 
 const int rifle_choice_t_galil = 1;
 const int rifle_choice_t_ak47 = 2;
 const int rifle_choice_t_sg553 = 3;
 const int rifle_choice_t_p90 = 4;
+const int rifle_choice_t_ssg08 = 5;
 
 const int pistol_choice_ct_hkp2000 = 1;
 const int pistol_choice_ct_usp = 7;
@@ -401,6 +403,8 @@ public void WeaponAllocator(ArrayList tPlayers, ArrayList ctPlayers, Bombsite bo
                         primary = "weapon_sg556";
                     case rifle_choice_t_p90:
                         primary = "weapon_p90";
+					case rifle_choice_t_ssg08:
+                        primary = "weapon_ssg08";
                 }
             }
         }
@@ -509,6 +513,8 @@ public void WeaponAllocator(ArrayList tPlayers, ArrayList ctPlayers, Bombsite bo
                         primary = "weapon_famas";
 					case rifle_choice_ct_p90:
                         primary = "weapon_p90";
+					case rifle_choice_ct_ssg08:
+                        primary = "weapon_ssg08";
                     case rifle_choice_ct_m4a1_s:
                         primary = "weapon_m4a1_silencer";
                     case rifle_choice_ct_aug:
@@ -738,7 +744,8 @@ public void GiveWeaponMenuCT(int client) {
     Handle menu = CreateMenu(MenuHandler_RIFLE_CT);
     SetMenuTitle(menu, "Select a CT rifle:");
     AddMenuInt(menu, rifle_choice_ct_famas, "Famas");
-	AddMenuInt(menu, rifle_choice_ct_p90, "BongMode");
+    AddMenuInt(menu, rifle_choice_ct_p90, "Bong Mode");
+	AddMenuInt(menu, rifle_choice_ct_ssg08, "Scuba Mode");
     AddMenuInt(menu, rifle_choice_ct_m4a4, "M4A4");
     AddMenuInt(menu, rifle_choice_ct_m4a1_s, "M4A1-S");
     AddMenuInt(menu, rifle_choice_ct_aug, "Aug");
@@ -750,7 +757,8 @@ public void GiveWeaponMenuT(int client) {
     SetMenuTitle(menu, "Select a T rifle:");
     AddMenuInt(menu, rifle_choice_t_galil, "Galil");
     AddMenuInt(menu, rifle_choice_t_ak47, "AK47");
-	AddMenuInt(menu, rifle_choice_t_p90, "BongMode");
+    AddMenuInt(menu, rifle_choice_t_p90, "Bong Mode");
+	AddMenuInt(menu, rifle_choice_t_ssg08, "Scuba Mode");
     AddMenuInt(menu, rifle_choice_t_sg553, "SG553");
     DisplayMenu(menu, client, MENU_TIME_LENGTH);
 }
